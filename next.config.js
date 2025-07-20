@@ -24,6 +24,9 @@ const nextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ["@prisma/client"],
+    unstable_allowDynamic: [
+      "**/node_modules/@react-email*/**/*.mjs",
+    ],
   },
 };
 
