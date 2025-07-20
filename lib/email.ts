@@ -14,6 +14,8 @@ export const sendVerificationRequest: EmailConfig["sendVerificationRequest"] =
     const user = await getUserByEmail(identifier);
     if (!user || !user.name) return;
 
+    console.log('sned')
+
     const userVerified = user?.emailVerified ? true : false;
     const authSubject = userVerified
       ? `Sign-in link for ${siteConfig.name}`
@@ -41,10 +43,11 @@ export const sendVerificationRequest: EmailConfig["sendVerificationRequest"] =
       });
 
       if (error || !data) {
+        console.log(error);
         throw new Error(error?.message);
       }
 
-      // console.log(data)
+      console.log(data)
     } catch (error) {
       throw new Error("Failed to send verification email.");
     }
